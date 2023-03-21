@@ -9,13 +9,12 @@ try:
     print("Inicie a conversa.")
     while True:
         message = input()
-        if (message == 'SAIR' or message == 'sair' or message == 'Sair'):
+        if (message == 'SAIR'):
+            s.send(message.encode())
             break
         s.send(message.encode())
         data = s.recv(1024)
         data = data.decode()
-        if (data == 'SAIR' or data == 'sair' or data == 'Sair'):
-            break
         print("SERVIDOR: "+ data)
 except Exception as e:
     print(e)

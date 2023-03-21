@@ -14,14 +14,11 @@ try:
         data = c.recv(1024)
         msg = data.decode()
         print("CLIENTE: " + msg)
-        if (msg == 'SAIR' or msg == 'sair' or msg == 'Sair'): 
+        if (msg == 'SAIR'): 
             break
         data = input()
-        if (data != 'SAIR' and data != 'sair' and data != 'Sair'):   
-            c.send(data.encode())
-        else:
-            c.send(data.encode())
-            break
+        c.send(data.encode())
+        
     c.close()
 except Exception as e:
     print(e)
