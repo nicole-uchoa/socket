@@ -14,6 +14,8 @@ try:
         data = c.recv(1024)
         msg = data.decode()
         print("CLIENTE: " + msg)
+        if (msg == 'SAIR' or msg == 'sair' or msg == 'Sair'): 
+            break
         data = input()
         if (data != 'SAIR' and data != 'sair' and data != 'Sair'):   
             c.send(data.encode())
